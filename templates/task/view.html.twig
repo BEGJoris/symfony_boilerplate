@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la tâche{% endblock %}
+
+{% block body %}
+    <div class="max-w-4xl mx-auto mt-10">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Détails de la tâche</h1>
+
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <h2 class="text-xl font-bold text-gray-700">Nom :</h2>
+                <p class="text-gray-600 text-lg">{{ task.name }}</p>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-xl font-bold text-gray-700">Description :</h2>
+                <p class="text-gray-600 text-lg">{{ task.description }}</p>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-xl font-bold text-gray-700">Date de création :</h2>
+                <p class="text-gray-600 text-lg">{{ task.createdAt|date('d/m/Y H:i') }}</p>
+            </div>
+
+            <div class="flex items-center justify-between mt-6">
+                <a href="{{ path('app_edit', { id: task.id }) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Modifier
+                </a>
+                <a href="{{ path('app_index') }}" class="text-gray-500 hover:text-gray-700 text-sm">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
